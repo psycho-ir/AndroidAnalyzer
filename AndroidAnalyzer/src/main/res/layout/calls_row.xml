@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="2dp"
+        android:text="@string/contact_name" />
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/lblName"
+        android:text="Name:" />
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblNumberOfCalls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp"
+        android:layout_toRightOf="@+id/lblNumberOfCallsValue"
+        android:text="@string/number_of_calls" />
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblNumberOfCallsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_alignParentLeft="true"
+        android:text="20" />
+    
+      <TextView 
+          android:textSize="16sp"
+        android:id="@+id/lblTotalDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblDurationPercentageValue"
+        android:layout_alignBottom="@+id/lblDurationPercentageValue"
+        android:layout_alignRight="@+id/lblName"
+        android:text="@string/call_duration" />
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblTotalDurationValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblName"
+        android:layout_marginRight="2dp"
+        
+        android:layout_toLeftOf="@id/lblTotalDuration"
+        android:text="Name:" />
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/lblDurationPercentageValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignBaseline="@+id/lblTotalDurationValue"
+        android:layout_alignBottom="@+id/lblTotalDurationValue"
+        android:text="%" />
+</RelativeLayout>

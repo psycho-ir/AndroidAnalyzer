@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">تحلیلگر تماس ها</string>
+    <string name="refresh">تازه سازی</string>
+    <string name="contact_name">نقطه تماس:</string>
+	<string name="number_of_calls">تعداد تماسها:</string>
+	<string name="call_duration">مدت مکالمه:</string>
+</resources>
