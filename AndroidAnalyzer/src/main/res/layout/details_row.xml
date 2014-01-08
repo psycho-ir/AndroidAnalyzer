@@ -9,16 +9,44 @@
                 android:paddingBottom="2dp"
                 tools:context=".MainActivity">
 
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblName"
+    <ImageView
+            android:src="@drawable/up"
+            android:layout_marginRight="15dp"
+            android:id="@+id/callTypeImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="2dp"
-            android:text="@string/contact_name"/>
+            android:layout_below="@+id/phoneNumber"
+            android:layout_alignParentRight="true"/>
+    <TextView
+            android:textSize="16sp"
+            android:id="@+id/contactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="contactName"
+            android:layout_alignTop="@+id/duration"
+            android:layout_toLeftOf="@+id/callTypeImg"/>
+    <TextView
+            android:textSize="20sp"
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number"
+            android:layout_marginRight="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/callTypeImg"/>
+
 
     <TextView
+            android:textSize="16sp"
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="234 seconds"
+            android:layout_marginLeft="26dp"
+            android:layout_alignBottom="@+id/callTypeImg"
+            android:layout_alignParentLeft="true"/>
+
+ <!--   <TextView
             android:textSize="16sp"
             android:id="@+id/lblNameValue"
             android:layout_width="wrap_content"
@@ -78,14 +106,7 @@
             android:layout_alignBottom="@+id/lblTotalDurationValue"
             android:text="%"/>
 
-    <ImageView
-            android:src="@drawable/up"
-            android:layout_below="@id/lblTotalDuration"
-            android:layout_alignParentRight="true"
-            android:id="@+id/incommingImg"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
     <TextView
             android:id="@+id/incommingNumber"
@@ -128,6 +149,6 @@
             android:text="sss"
             android:layout_alignBottom="@+id/incommingImg"
             android:layout_toLeftOf="@+id/missedimg"/>
-
-
+&ndash;&gt;
+-->
 </RelativeLayout>

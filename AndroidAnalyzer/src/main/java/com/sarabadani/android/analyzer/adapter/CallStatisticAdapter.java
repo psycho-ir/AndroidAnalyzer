@@ -36,11 +36,17 @@ public class CallStatisticAdapter extends ArrayAdapter<AggregatedCall> {
 		TextView totalDuration = (TextView) view.findViewById(R.id.lblTotalDurationValue);
 		TextView durationPercentage = (TextView) view.findViewById(R.id.lblDurationPercentageValue);
 		TextView numberOfCalls = (TextView) view.findViewById(R.id.lblNumberOfCallsValue);
+        TextView numberOfIncommingCalls = (TextView) view.findViewById(R.id.incommingNumber);
+        TextView numberOfOutgoinggCalls = (TextView) view.findViewById(R.id.outgoingNumber);
+        TextView numberOfMissedCalls = (TextView) view.findViewById(R.id.missedNumber);
 
 		name.setText(call.getName() != null ? call.getName() : call.getNumber());
 		totalDuration.setText(String.valueOf(call.getDuration())+" ثانیه");
 		durationPercentage.setText(call.getPercentage() + "%");
 		numberOfCalls.setText(String.valueOf(call.getNumberOffCalls()));
+        numberOfIncommingCalls.setText(String.valueOf(call.getNumberOfIncomingCalls()));
+        numberOfOutgoinggCalls.setText(String.valueOf(call.getNumberOfOutgoingCalls()));
+        numberOfMissedCalls.setText(String.valueOf(call.getNumberOfMissedCalls()));
 
 		return view;
 

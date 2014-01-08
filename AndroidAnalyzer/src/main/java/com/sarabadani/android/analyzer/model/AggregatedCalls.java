@@ -6,6 +6,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AggregatedCalls extends ArrayList<AggregatedCall> {
+    private static AggregatedCalls instance = new AggregatedCalls();
+
+    public static AggregatedCalls getInstance(){
+        return instance;
+    }
+
+    private AggregatedCalls(){
+        super();
+    }
 	public Boolean has(String number) {
 		for (Call c : this) {
 			if (c.getNumber().equals(number)) {
@@ -29,7 +38,7 @@ public class AggregatedCalls extends ArrayList<AggregatedCall> {
 			if (this.has(c.getNumber())) {
 				AggregatedCall aggregatedCall = this.find(c.getNumber());
 				aggregatedCall.increaseDuration(c.getDuration());
-				aggregatedCall.increaseNumberOfCalls();
+				aggregatedCall.increaseNumberOfCalls(c);
 			} else {
 				this.add(new AggregatedCall(c));
 			}
