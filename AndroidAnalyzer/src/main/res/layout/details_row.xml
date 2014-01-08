@@ -5,7 +5,7 @@
 
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
-                android:paddingTop="2dp"
+                android:paddingTop="8dp"
                 android:paddingBottom="2dp"
                 tools:context=".MainActivity">
 
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="contactName"
-            android:layout_alignTop="@+id/duration"
+            android:layout_alignBottom="@+id/callTypeImg"
             android:layout_toLeftOf="@+id/callTypeImg"/>
     <TextView
             android:textSize="20sp"
@@ -43,8 +43,16 @@
             android:layout_height="wrap_content"
             android:text="234 seconds"
             android:layout_marginLeft="26dp"
-            android:layout_alignBottom="@+id/callTypeImg"
+
             android:layout_alignParentLeft="true"/>
+
+    <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1392/10/10"
+            android:layout_alignBottom="@+id/contactName"
+            android:layout_alignLeft="@+id/duration"/>
 
  <!--   <TextView
             android:textSize="16sp"

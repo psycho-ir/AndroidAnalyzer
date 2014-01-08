@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.sarabadani.android.analyzer.R;
 import com.sarabadani.android.analyzer.model.AggregatedCall;
 import com.sarabadani.android.analyzer.model.Call;
+import com.sarabadani.android.common.utils.PersianCalendar;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -37,6 +39,7 @@ public class ListDetailsAdapter extends ArrayAdapter<Call> {
         TextView phoneNumber = (TextView) view.findViewById(R.id.phoneNumber);
         TextView contactName = (TextView) view.findViewById(R.id.contactName);
         TextView duration = (TextView) view.findViewById(R.id.duration);
+        TextView date = (TextView) view.findViewById(R.id.date);
 
         switch (call.getCallType()) {
             case CallLog.Calls.MISSED_TYPE:
@@ -55,9 +58,9 @@ public class ListDetailsAdapter extends ArrayAdapter<Call> {
 
         phoneNumber.setText(call.getNumber());
         contactName.setText(call.getName() == null ? "دخیره نشده" : call.getName());
-
-
-
+        PersianCalendar persianCalendar = new PersianCalendar(call.getDate());
+        String d = persianCalendar.getYear() + "/" + persianCalendar.getMonth() + "/" + persianCalendar.getDate() + " " + call.getDate().getHours() + ":" + call.getDate().getMinutes() + ":" + call.getDate().getSeconds();
+        date.setText(d);
 
         return view;
 

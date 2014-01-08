@@ -71,6 +71,7 @@ public class MainActivity extends ActionBarActivity {
             final Date date = new Date(c.getLong(dateIndex));
             final int duration = Integer.parseInt(c.getString(durationIndex));
             final int type = c.getInt(typeIndex);
+
             Call call = new Call(number, name, duration, date, type);
             calls.add(call);
         }
