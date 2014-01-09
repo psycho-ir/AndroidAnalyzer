@@ -79,7 +79,7 @@
             android:text="%"/>
 
     <ImageView
-            android:src="@drawable/up"
+            android:src="@drawable/down"
             android:layout_below="@id/lblTotalDuration"
             android:layout_alignParentRight="true"
             android:id="@+id/incommingImg"
@@ -97,7 +97,7 @@
 
     <ImageView
             android:id="@+id/outgoingImg"
-            android:src="@drawable/down"
+            android:src="@drawable/up"
             android:layout_below="@id/lblTotalDuration"
             android:layout_toLeftOf="@id/incommingNumber"
             android:layout_marginRight="5dp"

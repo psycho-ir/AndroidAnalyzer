@@ -3,15 +3,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="2dp"
                 tools:context=".MainActivity">
 
     <ImageView
             android:src="@drawable/up"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="5dp"
             android:id="@+id/callTypeImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="234 seconds"
-            android:layout_marginLeft="26dp"
+            android:layout_marginLeft="0dp"
 
             android:layout_alignParentLeft="true"/>
 
@@ -54,109 +54,5 @@
             android:layout_alignBottom="@+id/contactName"
             android:layout_alignLeft="@+id/duration"/>
 
- <!--   <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblNameValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_toLeftOf="@+id/lblName"
-            android:text="Name:"/>
 
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblNumberOfCalls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="0dp"
-            android:layout_toRightOf="@+id/lblNumberOfCallsValue"
-            android:text="@string/number_of_calls"/>
-
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblNumberOfCallsValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_alignParentLeft="true"
-            android:text="20"/>
-
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblTotalDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/lblDurationPercentageValue"
-            android:layout_alignBottom="@+id/lblDurationPercentageValue"
-            android:layout_alignRight="@+id/lblName"
-            android:text="@string/call_duration"/>
-
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblTotalDurationValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lblName"
-            android:layout_marginRight="2dp"
-
-            android:layout_toLeftOf="@id/lblTotalDuration"
-            android:text="Name:"/>
-
-    <TextView
-            android:textSize="16sp"
-            android:id="@+id/lblDurationPercentageValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignBaseline="@+id/lblTotalDurationValue"
-            android:layout_alignBottom="@+id/lblTotalDurationValue"
-            android:text="%"/>
-
-
-
-    <TextView
-            android:id="@+id/incommingNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sss"
-            android:layout_alignBottom="@+id/incommingImg"
-            android:layout_toLeftOf="@+id/incommingImg"/>
-
-    <ImageView
-            android:id="@+id/outgoingImg"
-            android:src="@drawable/down"
-            android:layout_below="@id/lblTotalDuration"
-            android:layout_toLeftOf="@id/incommingNumber"
-            android:layout_marginRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <TextView
-            android:id="@+id/outgoingNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sss"
-            android:layout_alignBottom="@+id/incommingImg"
-            android:layout_toLeftOf="@+id/outgoingImg"/>
-
-    <ImageView
-            android:src="@drawable/cancel"
-            android:layout_below="@id/lblTotalDuration"
-            android:layout_toLeftOf="@id/outgoingNumber"
-            android:layout_marginRight="5dp"
-            android:id="@+id/missedimg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <TextView
-            android:id="@+id/missedNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sss"
-            android:layout_alignBottom="@+id/incommingImg"
-            android:layout_toLeftOf="@+id/missedimg"/>
-&ndash;&gt;
--->
 </RelativeLayout>

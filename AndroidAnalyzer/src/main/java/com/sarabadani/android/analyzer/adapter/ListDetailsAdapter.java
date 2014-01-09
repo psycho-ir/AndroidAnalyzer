@@ -13,7 +13,6 @@ import com.sarabadani.android.analyzer.model.AggregatedCall;
 import com.sarabadani.android.analyzer.model.Call;
 import com.sarabadani.android.common.utils.PersianCalendar;
 
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -48,10 +47,12 @@ public class ListDetailsAdapter extends ArrayAdapter<Call> {
                 break;
             case CallLog.Calls.INCOMING_TYPE:
                 callImg.setImageResource(R.drawable.down);
-                duration.setText(call.getDuration() +" ثانیه");
+                duration.setText(call.getDuration() + " ثانیه");
+                break;
             case CallLog.Calls.OUTGOING_TYPE:
                 callImg.setImageResource(R.drawable.up);
-                duration.setText(call.getDuration() +" ثانیه");
+                duration.setText(call.getDuration() + " ثانیه");
+                break;
             default:
                 break;
         }
@@ -59,7 +60,7 @@ public class ListDetailsAdapter extends ArrayAdapter<Call> {
         phoneNumber.setText(call.getNumber());
         contactName.setText(call.getName() == null ? "دخیره نشده" : call.getName());
         PersianCalendar persianCalendar = new PersianCalendar(call.getDate());
-        String d = persianCalendar.getYear() + "/" + persianCalendar.getMonth() + "/" + persianCalendar.getDate() + " " + call.getDate().getHours() + ":" + call.getDate().getMinutes() + ":" + call.getDate().getSeconds();
+        String d = persianCalendar.getYear() + "/" + persianCalendar.getMonth() + "/" + persianCalendar.getDate() + " " + call.getDate().getHours() + ":" + call.getDate().getMinutes();
         date.setText(d);
 
         return view;
