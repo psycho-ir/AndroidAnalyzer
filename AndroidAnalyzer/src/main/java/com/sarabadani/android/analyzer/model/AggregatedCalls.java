@@ -12,7 +12,7 @@ public class AggregatedCalls extends ArrayList<AggregatedCall> {
         return instance;
     }
 
-    private AggregatedCalls(){
+    public AggregatedCalls(){
         super();
     }
 	public Boolean has(String number) {
@@ -64,7 +64,7 @@ public class AggregatedCalls extends ArrayList<AggregatedCall> {
 		}
 	}
 
-	private int calculateTotalDuration() {
+	public int calculateTotalDuration() {
 		int sum = 0;
 		for (Call c : this) {
 			sum += c.getDuration();
@@ -72,4 +72,30 @@ public class AggregatedCalls extends ArrayList<AggregatedCall> {
 
 		return sum;
 	}
-}
+
+    public int getNumberOfIncommingCalls(){
+        int sum = 0;
+        for (AggregatedCall c : this) {
+            sum += c.getNumberOfIncomingCalls();
+        }
+
+        return sum;
+    }
+
+    public int getNumberOfOutgoingCalls(){
+        int sum = 0;
+        for (AggregatedCall c : this) {
+            sum += c.getNumberOfOutgoingCalls();
+        }
+
+        return sum;
+    }
+
+    public int getNumberOfMissedCalls(){
+        int sum = 0;
+        for (AggregatedCall c : this) {
+            sum += c.getNumberOfMissedCalls();
+        }
+        return sum;
+    }
+  }

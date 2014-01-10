@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.sarabadani.android.analyzer"
-          android:versionCode="5"
-          android:versionName="1.1.1">
+          android:versionCode="6"
+          android:versionName="1.2.0">
 
     <uses-sdk
             android:minSdkVersion="7"
@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
             android:allowBackup="true"
@@ -29,9 +30,24 @@
         </activity>
         <activity android:name=".activity.DetailsActivity"
                   android:label="@string/call_details"
-                  android:theme="@style/AppTheme"
-                >
+                  android:theme="@style/AppTheme">
         </activity>
+
+
+        <receiver android:name="com.sarabadani.android.analyzer.listener.IncommingCall">
+            <intent-filter >
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.sarabadani.android.analyzer.widget.AnalyzerWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/analyzer_appwidget_info"/>
+        </receiver>
     </application>
+
 
 </manifest>

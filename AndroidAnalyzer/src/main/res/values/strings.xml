@@ -7,4 +7,5 @@
     <string name="contact_name">نقطه تماس:</string>
 	<string name="number_of_calls">تعداد تماسها:</string>
 	<string name="call_duration">مدت مکالمه:</string>
+    <string name="today_statistic">آمار تماسهای امروز</string>
 </resources>

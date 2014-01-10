@@ -14,6 +14,10 @@ public class AggregatedCall extends Call {
     private int numberOfIncomingCalls = 0;
     private int numberOfOutgoingCalls = 0;
 
+    private int durationOfMissedCalls = 0;
+    private int durationOfIncomingCalls = 0;
+    private int durationOfOutgoingCalls = 0;
+
     public List<Call> getAllCalls() {
         return allCalls;
     }
@@ -40,6 +44,7 @@ public class AggregatedCall extends Call {
         return numberOffCalls;
     }
 
+
     public void increaseNumberOfCalls(Call c) {
         this.allCalls.add(c);
         this.numberOffCalls++;
@@ -48,6 +53,9 @@ public class AggregatedCall extends Call {
                 this.numberOfIncomingCalls++;
                 break;
             case CallLog.Calls.MISSED_TYPE:
+                this.numberOfMissedCalls++;
+                break;
+            case 4:
                 this.numberOfMissedCalls++;
                 break;
             case CallLog.Calls.OUTGOING_TYPE:

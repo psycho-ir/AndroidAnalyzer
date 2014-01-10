@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp"
+              android:background="@drawable/widget_shape">
+
+    <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/today_statistic"
+            android:background="@color/widget_header"
+            android:textColor="#ffffff"
+            android:gravity="right"
+            android:id="@+id/textView"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+            >
+
+
+        <TextView android:id="@+id/total_duration"
+                  android:textColor="#ffffff"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="میزان مکالمات امروز"
+                  android:padding="5dp"
+                  android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
+        <TextView
+                android:id="@+id/total_duration_value"
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:text="300 ثانیه"
+                android:padding="5dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/total_duration"
+                android:layout_toLeftOf="@+id/total_duration"/>
+
+        <ImageView
+                android:src="@drawable/down"
+                android:id="@+id/incommingImg"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_below="@+id/total_duration"
+                android:layout_alignRight="@+id/total_duration"/>
+
+        <TextView
+                android:textColor="#ffffff"
+                android:id="@+id/incommingNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sss"
+                android:layout_alignBottom="@+id/incommingImg"
+                android:layout_toLeftOf="@+id/incommingImg"/>
+
+        <ImageView
+                android:id="@+id/outgoingImg"
+                android:src="@drawable/up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_duration" android:layout_toLeftOf="@+id/incommingNumber"/>
+
+        <TextView
+                android:textColor="#ffffff"
+                android:id="@+id/outgoingNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sss"
+                android:layout_alignBottom="@+id/incommingImg"
+                android:layout_toLeftOf="@+id/outgoingImg"/>
+
+        <ImageView
+                android:src="@drawable/cancel"
+                android:id="@+id/missedimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_duration" android:layout_toLeftOf="@+id/outgoingNumber"/>
+
+        <TextView
+                android:textColor="#ffffff"
+                android:id="@+id/missedNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sss"
+                android:layout_alignBottom="@+id/incommingImg"
+                android:layout_toLeftOf="@+id/missedimg"/>
+    </RelativeLayout>
+</LinearLayout>
