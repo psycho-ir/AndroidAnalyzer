@@ -7,9 +7,10 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="2dp"
                 tools:context=".MainActivity"
-                android:background="@drawable/list_item_shape"
+
 >
 
+    <!--android:background="@drawable/list_item_shape"-->
     <ImageView
             android:src="@drawable/up"
             android:layout_marginRight="5dp"

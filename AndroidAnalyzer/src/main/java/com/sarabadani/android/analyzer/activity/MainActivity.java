@@ -21,16 +21,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import com.sarabadani.android.analyzer.repository.CallLogRepository;
+import com.sarabadani.android.analyzer.repository.ContactRepository;
 
 public class MainActivity extends ActionBarActivity {
-    private final List<Call> calls = new ArrayList<Call>();
+    private List<Call> calls = new ArrayList<Call>();
     ListView listView;
     private AggregatedCalls aggregatedCalls;
+    private CallLogRepository callLogRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
+
+
+        this.callLogRepository = new CallLogRepository(this);
         setContentView(R.layout.activity_call);
 
         findAllCalls();
@@ -53,34 +59,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void findAllCalls() {
-
         calls.clear();
-        Uri uri = Uri.parse("content://call_log/calls");
-
-        Cursor c = getContentResolver().query(uri, null, null, null, "_ID ");
-
-        final int numberIndex = c.getColumnIndex(Calls.NUMBER);
-        final int nameIndex = c.getColumnIndex(Calls.CACHED_NAME);
-        final int dateIndex = c.getColumnIndex(Calls.DATE);
-        final int durationIndex = c.getColumnIndex(Calls.DURATION);
-        final int typeIndex = c.getColumnIndex(Calls.TYPE);
-
-        while (c.moveToNext()) {
-            final String number = c.getString(numberIndex);
-            final String name = c.getString(nameIndex);
-            final Date date = new Date(c.getLong(dateIndex));
-            final int duration = Integer.parseInt(c.getString(durationIndex));
-            final int type = c.getInt(typeIndex);
-
-            Call call = new Call(number, name, duration, date, type);
-            calls.add(call);
-        }
-
+        calls = this.callLogRepository.findAllCalls();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -101,6 +85,4 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void listCallsClick(View view) {
-    }
 }

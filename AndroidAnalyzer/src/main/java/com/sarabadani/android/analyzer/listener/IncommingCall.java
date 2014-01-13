@@ -14,6 +14,7 @@ import android.widget.RemoteViews;
 import com.sarabadani.android.analyzer.R;
 import com.sarabadani.android.analyzer.model.AggregatedCalls;
 import com.sarabadani.android.analyzer.model.Call;
+import com.sarabadani.android.analyzer.repository.CallLogRepository;
 import com.sarabadani.android.analyzer.widget.AnalyzerWidgetProvider;
 
 import java.util.ArrayList;
@@ -31,15 +32,9 @@ public class IncommingCall extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        // TELEPHONY MANAGER class object to register one listner
-/*        TelephonyManager tmgr = (TelephonyManager) context
-                .getSystemService(Context.TELEPHONY_SERVICE);
 
-        //Create Listner
-        AnalyzerPhoneStateListener PhoneListener = new AnalyzerPhoneStateListener();
+        final CallLogRepository callLogRepository = new CallLogRepository(context);
 
-        // Register listener for LISTEN_CALL_STATE
-        tmgr.listen(PhoneListener, PhoneStateListener.LISTEN_CALL_STATE);*/
 
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         ComponentName thisWidget = new ComponentName(context, AnalyzerWidgetProvider.class);
@@ -53,61 +48,32 @@ public class IncommingCall extends BroadcastReceiver {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                AggregatedCalls aggregatedCalls = analyzeTodayCallLogs(context);
+                AggregatedCalls aggregatedCalls = analyzeTodayCallLogs(callLogRepository);
                 for (int widgetId : allWidgetIds) {
-                    // create some random data
+                    RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget);
 
-                    RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
-                            R.layout.widget);
-                    // Set the text
-                    remoteViews.setTextViewText(R.id.total_duration_value,String.valueOf(aggregatedCalls.calculateTotalDuration())+ " ثانیه");
-                    remoteViews.setTextViewText(R.id.incommingNumber,String.valueOf(aggregatedCalls.getNumberOfIncommingCalls()));
-                    remoteViews.setTextViewText(R.id.outgoingNumber,String.valueOf(aggregatedCalls.getNumberOfOutgoingCalls()));
-                    remoteViews.setTextViewText(R.id.missedNumber,String.valueOf(aggregatedCalls.getNumberOfMissedCalls()));
+                    remoteViews.setTextViewText(R.id.total_duration_value, String.valueOf(aggregatedCalls.calculateTotalDuration()) + " ثانیه");
+                    remoteViews.setTextViewText(R.id.incommingNumber, String.valueOf(aggregatedCalls.getNumberOfIncommingCalls()));
+                    remoteViews.setTextViewText(R.id.outgoingNumber, String.valueOf(aggregatedCalls.getNumberOfOutgoingCalls()));
+                    remoteViews.setTextViewText(R.id.missedNumber, String.valueOf(aggregatedCalls.getNumberOfMissedCalls()));
                     appWidgetManager.updateAppWidget(widgetId, remoteViews);
                 }
             }
         }).start();
     }
 
-    private AggregatedCalls analyzeTodayCallLogs(Context context){
-
-        Uri uri = Uri.parse("content://call_log/calls");
-
-        Calendar calendar =Calendar.getInstance();
+    private AggregatedCalls analyzeTodayCallLogs(CallLogRepository callLogRepository) {
+        Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
-
-        Cursor c = context.getContentResolver().query(uri, null, CallLog.Calls.DATE + " > " + calendar.getTimeInMillis(), null, "_ID ");
-
-        final int numberIndex = c.getColumnIndex(CallLog.Calls.NUMBER);
-        final int nameIndex = c.getColumnIndex(CallLog.Calls.CACHED_NAME);
-        final int dateIndex = c.getColumnIndex(CallLog.Calls.DATE);
-        final int durationIndex = c.getColumnIndex(CallLog.Calls.DURATION);
-        final int typeIndex = c.getColumnIndex(CallLog.Calls.TYPE);
-
-
-        final List<Call> calls = new ArrayList<Call>();
-        while (c.moveToNext()) {
-            final String number = c.getString(numberIndex);
-            final String name = c.getString(nameIndex);
-            final Date date = new Date(c.getLong(dateIndex));
-            final int duration = Integer.parseInt(c.getString(durationIndex));
-            final int type = c.getInt(typeIndex);
-
-            Call call = new Call(number, name, duration, date, type);
-            calls.add(call);
-        }
+        List<Call> allTodayCalls = callLogRepository.findAllCallsAfter(calendar.getTimeInMillis());
 
         AggregatedCalls aggregatedCalls = new AggregatedCalls();
-        aggregatedCalls.aggregate(calls);
+        aggregatedCalls.aggregate(allTodayCalls);
 
         return aggregatedCalls;
-
-
-
     }
 
 
